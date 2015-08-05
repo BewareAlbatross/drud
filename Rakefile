@@ -1,8 +1,6 @@
 # encoding: utf-8
 
 require 'rspec/core/rake_task'
-require 'bundler/version'
-require 'bundler/gem_tasks'
 require 'rdoc/task'
 
 desc "Build the Gem"
@@ -12,7 +10,7 @@ end
 
 desc "Release the Gem"
 task :release => :build do  
-  sh "gem push bundler-#{Bunder::VERSION}"
+  sh "gem push qddrud-0.1.0.gem"
 end  
 
 RDoc::Task.new do |rdoc|
