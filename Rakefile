@@ -1,8 +1,19 @@
 # encoding: utf-8
+
 require 'rspec/core/rake_task'
+require 'bundler/version'
 require 'bundler/gem_tasks'
-require 'rubocop/rake_task'
 require 'rdoc/task'
+
+desc "Build the Gem"
+task :build do  
+  sh 'gem build bundler.gemspec'
+end
+
+desc "Release the Gem"
+task :release => :build do  
+  sh "gem push bundler-#{Bunder::VERSION}"
+end  
 
 RDoc::Task.new do |rdoc|
   rdoc.main = 'README.rdoc'
@@ -11,8 +22,3 @@ end
 
 desc 'Run rspec tests'
 RSpec::Core::RakeTask.new(:spec)
-
-desc 'Run RuboCop style and lint checks'
-RuboCop::RakeTask.new(:rubocop)
-
-task default: :rubocop
