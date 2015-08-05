@@ -1,7 +1,8 @@
 require 'chef/cookbook/metadata'
 require 'erb'
+require 'ostruct'
 
-module Drud
+module Qddrud
   # Constructs a new ERB object for rendering a Readme.md file.
   class ReadmeTemplate < OpenStruct
     # Desribe the behaviour of the method

@@ -7,7 +7,7 @@ require 'rdoc/task'
 
 desc "Build the Gem"
 task :build do  
-  sh 'gem build bundler.gemspec'
+  sh 'gem build qddrud.gemspec'
 end
 
 desc "Release the Gem"
